@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.dao.GoodsDao">
+
+    <insert id="insert" parameterType="com.example.demo.entity.Goods">
+        insert into goods (title,add_time,remark,click,img_url,sell_price,market_price,stock_quantity)
+        values(#{title},#{addTime},#{remark},#{click},#{imgUrl},#{sellPrice},#{marketPrice},#{stockQuantity});
+    </insert>
+    <select id="list" resultType="com.example.demo.entity.Goods">
+       select id,title,add_time as addTime,remark,click,img_url as imgUrl,sell_price as sellPrice,market_price as marketPrice,stock_quantity as stockQuantity
+       from goods
+       limit #{start},#{rows}
+    </select>
+    <select id="getById" resultType="com.example.demo.entity.Goods" parameterType="long">
+        select id,title,add_time as addTime,remark,click,img_url as imgUrl,sell_price as sellPrice,market_price as marketPrice,stock_quantity as stockQuantity,goods_no as goodsNo
+        from goods
+        where id = #{goodsId}
+    </select>
+</mapper>

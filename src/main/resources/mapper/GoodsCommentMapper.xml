@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.dao.GoodsCommentDao">
+
+    <insert id="insert" parameterType="com.example.demo.entity.GoodsComment">
+        insert into goods_comment (goods_id,create_time,username,content) values(#{goodsId},#{createTime},#{username},#{content});
+    </insert>
+    <select id="list" resultType="com.example.demo.entity.GoodsComment">
+       select id,goods_id as goodsId,create_time as createTime,username,content from goods_comment where goods_id=#{goodsId}
+       order by id desc
+       limit #{start},#{rows}
+    </select>
+</mapper>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.dao.GoodsSwipePicDao">
+
+    <insert id="insert" parameterType="com.example.demo.entity.GoodsSwipePic">
+        insert into goods_swipe_pic (goods_id,url) values (#{goodsId},#{url})
+    </insert>
+    <select id="list" resultType="com.example.demo.entity.GoodsSwipePic">
+       select id,goods_id as goodsId,url from goods_swipe_pic where goods_id = #{goodsId}
+    </select>
+</mapper>

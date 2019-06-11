@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.dao.SwipePicDao">
+
+    <insert id="insertSwipePic" parameterType="com.example.demo.entity.SwipePic">
+        insert into swipe_pic (name,disk_address) values(#{name},#{diskAddress})
+    </insert>
+    <select id="listSwipePic" resultType="com.example.demo.entity.SwipePic">
+        select id,name,disk_address as diskAddress from swipe_pic
+    </select>
+</mapper>

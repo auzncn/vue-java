@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.dao.PhotoDao">
+
+    <insert id="insert" parameterType="com.example.demo.entity.Photo">
+        insert into photo (title,body,url,cate_id) values(#{title},#{body},#{url},#{cateId})
+    </insert>
+    <select id="list" resultType="com.example.demo.entity.Photo" parameterType="map">
+        select id,cate_id as cateId,url,title,body from photo where 1=1
+        <if test="cateId != 0">
+            and cate_id = #{cateId}
+        </if>
+    </select>
+</mapper>

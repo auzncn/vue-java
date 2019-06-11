@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.dao.PhotoCommentDao">
+
+    <insert id="insert" parameterType="com.example.demo.entity.PhotoComment">
+        insert into photo_comment (photo_id,create_time,username,content) values(#{photoId},#{createTime},#{username},#{content});
+    </insert>
+    <select id="list" resultType="com.example.demo.entity.PhotoComment">
+       select id,photo_id as photoId,create_time as createTime,username,content from photo_comment where photo_id=#{photoId}
+       order by id desc
+       limit #{start},#{rows}
+    </select>
+</mapper>
